@@ -52,3 +52,5 @@ contract CryptoDevToken is ERC20, Ownable {
       fallback() external payable {}
 }
 </code></pre>
+
+### New Funct
