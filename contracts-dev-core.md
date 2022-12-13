@@ -53,4 +53,8 @@ contract CryptoDevToken is ERC20, Ownable {
 }
 </code></pre>
 
-### New Funct
+### Create Modifier
+
+```
+// Some code
+```

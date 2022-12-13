@@ -4,12 +4,6 @@ description: Common functionality in dapps
 
 # dApps - Dev Core
 
-### **Default Eth Address**
-
-```solidity
-address(0) = 0x0000000000000000000000000000000000000000
-```
-
 ### **Track wallet connected**
 
 ```javascript
