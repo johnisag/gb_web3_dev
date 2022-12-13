@@ -55,6 +55,25 @@ contract CryptoDevToken is ERC20, Ownable {
 
 ### Create Modifier
 
-```
-// Some code
+```solidity
+// Create a modifier which only allows a function to be
+// called if the given proposal's deadline has not been exceeded yet
+modifier activeProposalOnly(uint256 proposalIndex) {
+    require(
+        proposals[proposalIndex].deadline > block.timestamp,
+        "DEADLINE_EXCEEDED"
+    );
+    _;
+}
+
+/// @dev voteOnProposal allows a CryptoDevsNFT holder to cast their vote on an active proposal
+/// @param proposalIndex - the index of the proposal to vote on in the proposals array
+/// @param vote - the type of vote they want to cast
+function voteOnProposal(uint256 proposalIndex, Vote vote)
+    external
+    nftHolderOnly
+    activeProposalOnly(proposalIndex)
+{
+    // TODO: SOME IMPLEMENTATION
+}
 ```
