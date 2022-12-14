@@ -135,7 +135,10 @@ useEffect(() => {
         providerOptions: {},
         disableInjectedProvider: false,
       });
-      connectWallet();
+      connectWallet().then(() => {
+        // OPTIONAL
+        //TODO: call function wrappers to get data from contracts
+      });
     }
 }, [walletConnected]);
 ```
