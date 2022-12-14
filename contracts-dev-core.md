@@ -77,3 +77,15 @@ function voteOnProposal(uint256 proposalIndex, Vote vote)
     // TODO: SOME IMPLEMENTATION
 }
 ```
+
+### Withdraw Contract ETH
+
+* Contract Function
+
+```solidity
+function withdraw() external onlyOwner {
+    uint256 amount = address(this).balance;
+    require(amount > 0, "Nothing to withdraw; contract balance empty");
+    payable(owner()).transfer(amount);
+}
+```

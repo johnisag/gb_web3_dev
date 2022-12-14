@@ -4,12 +4,6 @@ description: Common functionality in dapps
 
 # dApps - Dev Core
 
-### **Default Eth Address**
-
-```solidity
-address(0) = 0x0000000000000000000000000000000000000000
-```
-
 ### **Track wallet connected**
 
 ```javascript
@@ -145,51 +139,3 @@ useEffect(() => {
     Connect your wallet
 </button>
 ```
-
-### Get Contract Owner
-
-```javascript
-  const getOwner = async () => {
-    try {
-        const signer: any   = await getProviderOrSigner(true);
-        const contract = getMyContractInstance(signer);
-
-        // call the owner function from the contract
-        const _owner  = await contract.owner();
-        
-        // Get the address associated to signer which is connected to Metamask
-        const address = await signer.getAddress();
-        
-        if (address.toLowerCase() === _owner.toLowerCase()) {
-          setIsOwner(true);
-        }
-    } catch (err: any) {
-      console.error(err.message);
-    }
-  };
-```
-
-### Get Contract Instance
-
-* Wrapper function
-
-{% code overflow="wrap" %}
-```javascript
-// Helper function to return a Contract instance; given a Provider/Signer
-const getContractInstance = (
-  providerOrSigner: any, 
-  address: string, 
-  abi: [], 
-  is_debug: boolean = false
-) => {
-  const contractInstance = new Contract(address, abi, providerOrSigner);
-
-  if (is_debug){
-    console.log("Getting Contract Instance: " + address);
-    console.log("Contract ABI:" + abi);
-  }
-
-  return contractInstance;
-};
-```
-{% endcode %}
