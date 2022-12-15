@@ -53,6 +53,31 @@ contract CryptoDevToken is ERC20, Ownable {
 }
 </code></pre>
 
+### Create Interface
+
+* When we comsume contracts from within other contracts
+* Init of the contract instance within the contructor
+
+```solidity
+interface IFakeNFTMarketplace {
+    function getPrice() external view returns (uint256);
+    
+    function available(uint256 _tokenId) external view returns (bool);
+
+    function purchase(uint256 _tokenId) external payable;
+}
+
+contract CryptoDevsDAO is Ownable {
+    // to create instance of the utilised contracts
+    IFakeNFTMarketplace nftMarketplace;
+    
+    constructor(address _nftMarketplace) payable {
+        nftMarketplace = IFakeNFTMarketplace(_nftMarketplace);
+    }
+    // REST OF THE CODE ...
+}
+```
+
 ### Create Modifier
 
 ```solidity
@@ -75,5 +100,17 @@ function voteOnProposal(uint256 proposalIndex, Vote vote)
     activeProposalOnly(proposalIndex)
 {
     // TODO: SOME IMPLEMENTATION
+}
+```
+
+### Withdraw Contract ETH
+
+* Contract Function
+
+```solidity
+function withdraw() external onlyOwner {
+    uint256 amount = address(this).balance;
+    require(amount > 0, "Nothing to withdraw; contract balance empty");
+    payable(owner()).transfer(amount);
 }
 ```
