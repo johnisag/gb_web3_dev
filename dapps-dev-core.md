@@ -216,3 +216,17 @@ const withdrawEther = async () => {
   }
 };
 ```
+
+### Get ETH Balance
+
+```javascript
+export const getEtherBalance = async (provider, address) => {
+  try {
+    const balance = await provider.getBalance(address);
+    return balance;
+  } catch (err) {
+    console.error(err);
+    return 0;
+  }
+};
+```
