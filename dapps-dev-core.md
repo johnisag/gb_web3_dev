@@ -230,3 +230,21 @@ export const getEtherBalance = async (provider, address) => {
   }
 };
 ```
+
+### Get ERC20 Token Balance
+
+```javascript
+export const getTokenBalance = async (provider, address) => {
+  try {
+    const tokenContract = new Contract(
+      TOKEN_CONTRACT_ADDRESS,
+      TOKEN_CONTRACT_ABI,
+      provider
+    );
+    const balanceOfER20Token = await tokenContract.balanceOf(address);
+    return balanceOfER20Token ;
+  } catch (err) {
+    console.error(err);
+  }
+};
+```
