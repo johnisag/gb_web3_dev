@@ -248,3 +248,29 @@ export const getTokenBalance = async (provider, address) => {
   }
 };
 ```
+
+### Get ENS or Address
+
+* Sets the ENS, if the current connected address has an associated ENS OR ELSE&#x20;
+* It sets the address of the connected account&#x20;
+
+```javascript
+  // ENS
+  const [ens, setENS] = useState("");
+  // Save the address of the currently connected account
+  const [address, setAddress] = useState("");
+
+  const setENSOrAddress = async (address, web3Provider) => {
+    // Lookup the ENS related to the given address
+    var _ens = await web3Provider.lookupAddress(address);
+    // If the address has an ENS set the ENS or else just set the address
+    if (_ens) {
+      setENS(_ens);
+    } else {
+      setAddress(address);
+    }
+  };
+```
+
+
+
