@@ -54,7 +54,7 @@ contract Greeter {
 ### **Running your Local Node**
 
 ```shell
-npx hardhat nodel
+npx hardhat node
 # after start we should see something like:
 # Started HTTP and WebSocket JSON-RPC server at http://127.0.0.1:8545/
 ```
