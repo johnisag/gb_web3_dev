@@ -4,7 +4,7 @@
 * [Requirements](<README (1).md>)
 * [Contracts - Dev Process](contracts-dev-process.md)
 * [Contracts - Dev Core](contracts-dev-core.md)
+* [Contracts - Local Testing](contracts-local-testing.md)
 * [dApps - Dev Process](dapps-dev-process.md)
 * [dApps - Dev Core](dapps-dev-core.md)
 * [dApps - Deploy](dapps-deploy.md)
-* [Contracts - Local Testing](contracts-local-testing.md)
