@@ -1,5 +1,5 @@
 ---
-description: Smart contracts dev process steps
+description: Smart contracts dev process steps using Goerli
 ---
 
 # Contracts - Dev Process
@@ -142,35 +142,3 @@ npx hardhat run scripts/deploy.js --network goerli
 
 * **Keep the deployed contracts address after deployment**
 
-### Local Testing / Hardhat Node
-
-* Using **hardhat/console.sol**
-
-```solidity
-//SPDX-License-Identifier: Unlicense
-pragma solidity ^0.8.0;
-
-import "hardhat/console.sol";
-
-contract Greeter {
-    string private greeting;
-
-    constructor(string memory _greeting) {
-        console.log("Deploying a Greeter with greeting:", _greeting);
-        greeting = _greeting;
-    }
-
-    function greet() public view returns (string memory) {
-        return greeting;
-    }
-    
-    receive() external payable{}
-    fallback() external payable{}
-}
-```
-
-**Running your local blockchain in your terminal pointing to your directory**&#x20;
-
-```shell
-npx hardhat node
-```
