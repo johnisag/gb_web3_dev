@@ -55,7 +55,13 @@ contract Greeter {
 
 ```shell
 npx hardhat nodel
+# after start we should see something like:
+# Started HTTP and WebSocket JSON-RPC server at http://127.0.0.1:8545/
 ```
+
+* Keep this terminal running
+* Keep port used by HTTP and WebSocket JSON-RPC server
+* We will use this port (8545 here) with metamask
 
 ### Set Deploy Script
 
