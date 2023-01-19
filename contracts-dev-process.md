@@ -146,6 +146,8 @@ npx hardhat run scripts/deploy.js --network goerli
 
 * Using **hardhat/console.sol**
 
+Create**`Greeter.sol`**  inside **./contracts**
+
 ```solidity
 //SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.0;

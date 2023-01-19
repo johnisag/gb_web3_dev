@@ -7,3 +7,4 @@
 * [dApps - Dev Process](dapps-dev-process.md)
 * [dApps - Dev Core](dapps-dev-core.md)
 * [dApps - Deploy](dapps-deploy.md)
+* [Contracts - Local Testing](contracts-local-testing.md)
