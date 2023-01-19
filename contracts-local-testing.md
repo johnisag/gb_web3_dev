@@ -63,6 +63,8 @@ npx hardhat node
 * Keep port used by HTTP and WebSocket JSON-RPC server
 * We will use this port (8545 here) with metamask
 
+This command starts a local blockchain node for you. You should be able to see some accounts which have already been funded by hardhat with 10000 ETH
+
 ### Set Deploy Script
 
 * **Create/replace** ./**`scripts`**/**`deploy.js`**.
