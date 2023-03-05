@@ -272,29 +272,6 @@ export const getTokenBalance = async (provider, address) => {
   };
 ```
 
-### Testing - Free Mint
-
-* Mint 10,000 tokens to user address (for testing)
-
-```javascript
-const { arrayify, parseEther } = require("ethers/lib/utils");
-const { ethers } = require("hardhat");
-
-// Deploy the contracts
-const RandomTokenFactory = await ethers.getContractFactory("RandomToken");
-const randomTokenContract = await RandomTokenFactory.deploy();
-await randomTokenContract.deployed();
-
-
-// Mint 10,000 tokens to user address (for testing)
-const tenThousandTokensWithDecimals = parseEther("10000");
-const userTokenContractInstance = randomTokenContract.connect(userAddress);
-const mintTxn = await userTokenContractInstance.freeMint(
-  tenThousandTokensWithDecimals
-);
-await mintTxn.wait();
-```
-
 ### Testing - Get Address
 
 ```javascript
