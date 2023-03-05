@@ -272,5 +272,54 @@ export const getTokenBalance = async (provider, address) => {
   };
 ```
 
+### Testing - Free Mint
 
+* Mint 10,000 tokens to user address (for testing)
+
+```javascript
+const { arrayify, parseEther } = require("ethers/lib/utils");
+const { ethers } = require("hardhat");
+
+// Deploy the contracts
+const RandomTokenFactory = await ethers.getContractFactory("RandomToken");
+const randomTokenContract = await RandomTokenFactory.deploy();
+await randomTokenContract.deployed();
+
+
+// Mint 10,000 tokens to user address (for testing)
+const tenThousandTokensWithDecimals = parseEther("10000");
+const userTokenContractInstance = randomTokenContract.connect(userAddress);
+const mintTxn = await userTokenContractInstance.freeMint(
+  tenThousandTokensWithDecimals
+);
+await mintTxn.wait();
+```
+
+### Testing - Get Address
+
+```javascript
+// Get three addresses, treat one as the user address
+// one as the relayer address, and one as a recipient address
+const [_, userAddress, relayerAddress, recipientAddress] = await ethers.getSigners();
+```
+
+### Infinite Approve Token Transfer
+
+```javascript
+// Have user infinite approve the token sender contract for transferring 'RandomToken'
+const approveTxn = await userTokenContractInstance.approve(
+  tokenSenderContract.address,
+  BigNumber.from(
+    // This is uint256's max value (2^256 - 1) in hex
+    // Fun Fact: There are 64 f's in here.
+    // In hexadecimal, each digit can represent 4 bits
+    // f is the largest digit in hexadecimal (1111 in binary)
+    // 4 + 4 = 8 i.e. two hex digits = 1 byte
+    // 64 digits = 32 bytes
+    // 32 bytes = 256 bits = uint256
+    "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+  )
+);
+await approveTxn.wait();
+```
 
